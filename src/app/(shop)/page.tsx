@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <>
-   <p>ESTE ES EL HOME</p>
+
     <PlaceOrder/>
   </>
   );
