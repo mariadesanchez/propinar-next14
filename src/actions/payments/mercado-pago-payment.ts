@@ -31,12 +31,12 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         // failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
         // success:`https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
 
-        failure: `http://localhost:3001/orders/${ order.id }`,
-        success:`http://localhost:3001/${ order.id }`,
+        failure: `https://propinar-argentina.vercel.app/orders/${ order.id }`,
+        success:`https://propinar-argentina.vercel.app/orders/${ order.id }`,
       },
       back_urls: {
-        failure: `http://localhost:3001/orders/${ order.id }`,
-        success:`http://localhost:3001/orders/${ order.id }`,
+        failure: `https://propinar-argentina.vercel.app/orders/${ order.id }`,
+        success:`https://propinar-argentina.vercel.app/orders/${ order.id }`,
         // failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
         // success: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
         
