@@ -2,7 +2,7 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { redirect } from 'next/navigation';
 import prisma from '@/lib/prisma';
-import { revalidatePath } from 'next/cache';
+
 
 interface Order {
   id: string;

@@ -13,6 +13,8 @@
     "@prisma/client": "^5.11.0",
     "@react-icons/all-files": "^4.1.0",
     "@types/qrcode.react": "^1.0.5",
+    "clsx": "^2.1.0",
+    "mercadopago": "^2.0.8",
     "next": "14.1.4",
     "next-auth": "^5.0.0-beta.16",
     "qrcode.react": "^3.1.0",
