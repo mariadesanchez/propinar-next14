@@ -7,9 +7,7 @@
         "build": "prisma generate && next build",
         "start": "next start",
         "lint": "next lint"
-
     },
-
     "dependencies": {
         "@paypal/react-paypal-js": "^8.2.0",
         "@prisma/client": "^5.11.0",
