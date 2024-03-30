@@ -11,7 +11,6 @@ interface Order {
 
 export const mercadoPagoCheckPayment = async (order: Order) => {
   const accessToken = process.env.NEXT_MERCADO_PAGO_ACCESS_TOKEN!;
-  
   const client = new MercadoPagoConfig({ accessToken });
 
   const preference = new Preference(client);

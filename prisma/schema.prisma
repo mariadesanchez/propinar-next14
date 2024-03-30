@@ -1,3 +1,5 @@
+
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -5,32 +7,16 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-}// Order de compras
+}
 model Order {
   id           String    @id @default(uuid())
   total        Float
   isPaid       Boolean   @default(false)
   paidAt       DateTime?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-  // userId       String?   // Permitiendo valores nulos temporales
-  // user         User?     @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+ 
 }
-
-
-// enum Role {
-//   admin
-//   user
-// }
-
-// model User {
-//   id            String    @id @default(uuid())
-//   name          String
-//   email         String    @unique
-//   emailVerified DateTime?
-//   password      String
-//   role          Role      @default(user)
-
-//   // Relaciones
-//   Order Order[]
-// }
