@@ -14,8 +14,7 @@ datasource db {
 }
 model Order {
   id           String    @id @default(uuid())
-  total        Float
-  itemsInOrder Int
+  total        Int
   isPaid       Boolean   @default(false)
   paidAt       DateTime?
   createdAt DateTime @default(now())
