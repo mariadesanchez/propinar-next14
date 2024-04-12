@@ -1,8 +1,7 @@
-'use server';
+'use server'
 import { MercadoPagoConfig, Preference } from 'mercadopago';
-import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation'; // Importar desde next/navigation en lugar de next/router
 import prisma from '@/lib/prisma';
-
 
 interface Order {
   id: string;
@@ -27,33 +26,29 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         },
       ],
       redirect_urls: {
-        // failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
-        // success:`https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
-
-        failure: `https://propinar-argentina.vercel.app/orders/${ order.id }`,
-        success:`https://propinar-argentina.vercel.app/orders/${ order.id }`,
+        failure: `http://localhost:3001/orders/${order.id}`,
+        success: `http://localhost:3001/orders/${order.id}`,
       },
       back_urls: {
-        failure: `https://propinar-argentina.vercel.app/orders/${ order.id }`,
-        success:`https://propinar-argentina.vercel.app/orders/${ order.id }`,
-        // failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
-        // success: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
-        
-
+        failure: `http://localhost:3001/orders/${order.id}`,
+        success: `http://localhost:3001/orders/${order.id}`,
       },
-      auto_return: 'approved',
+      auto_return: 'approved'
     },
   });
 
-  // Actualiza la orden como pagada en la base de datos
-  await prisma.order.update({
-    where: { id: order.id },
-    data:  {
-      isPaid: true,
-      paidAt: new Date()
-    }
-  });
-
-  // Redirige al usuario después de que Mercado Pago haya cobrado y la orden haya sido actualizada
-  redirect(res.init_point!); 
+  if (res.id) {
+    await prisma.order.update({
+      where: { id: order.id },
+      data: {
+        isPaid: true,
+        paidAt: new Date(),
+      }
+    });
+    
+    // Utiliza redirect desde next/navigation para redirigir después de actualizar la orden
+    redirect(res.init_point!);
+  } else {
+    console.error("No se pudo obtener el payment_id de la respuesta de Mercado Pago.");
+  }
 };

@@ -22,61 +22,67 @@ export const PlaceOrder = () => {
 
   const onPlaceOrder = async () => {
     setIsPlacingOrder(true);
-    const resp = await placeOrder(total);
-    if (!resp.ok) {
+    const userId = 'fa3bd971-aea7-4049-9945-8f4b2836f98f';//aca va el UUI del titular de la cuenta de mercado pago
+    try {
+      const resp = await placeOrder(total, userId);
+      if (!resp.ok) {
+        setIsPlacingOrder(false);
+        setErrorMessage(resp.message);
+        return;
+      }
+      router.replace('/orders/' + resp.order?.id);
+    } catch (error) {
       setIsPlacingOrder(false);
-      setErrorMessage(resp.message);
-      return;
+      setErrorMessage('An error occurred while placing the order.');
     }
-
-    router.replace('/orders/' + resp.order?.id);
   };
-
+  
+  
   if (!loaded) {
     return <p>Cargando...</p>;
   }
 
   return (
-    <div className="bg-white rounded-xl w-full shadow-xl p-7 mt-20">
-      <div className="text-center mb-5">
-        <QRCodeGenerator defaultUrl="https://propinar-argentina.vercel.app" size={60} />
-        {/* <QRCodeGenerator defaultUrl=" https://saludar-app.vercel.app" size={60} /> */}
-
-       
-        <Title title="PropinAr" className="inline-block" />
-      </div>
-      <p className="text-xl text-center">
-        <span className="text-2xl text-center">🇦🇷</span> Propina Electrónica Argentina 
-        <span className="text-2xl text-center">🇦🇷</span>
-      </p>
-      <div className="w-full h-0.5 rounded bg-gray-200 mb-10" />
-      <span className="mt-5 text-2xl text-center font-bold ">
-        <div className="flex justify-center ">{currencyFormat(total)}</div>
-      </span>
-      <div className="mt-5 mb-2 w-full">
-        <input
-          type="number"
-          value={total}
-          onChange={(e) => setTotal(parseFloat(e.target.value))}
-          style={{ textAlign: 'center', fontSize: '1.2rem', fontWeight: 'bold' }}
-          className="w-full border border-gray-500 rounded-lg px-4 py-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
-          placeholder="Enter Total"
-          required
-          min="1"
-        />
-        <p className="mb-5"></p>
-        <p className="text-red-500">{errorMessage}</p>
-        <button
-          onClick={onPlaceOrder}
-          className={clsx({
-            'btn-primary': !isPlacingOrder,
-            'btn-disabled': isPlacingOrder,
-            'w-full': true
-          })}
-        >
-          Propina
-        </button>
-      </div>
+    <div className="flex justify-center">
+  <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mt-20">
+    <div className="text-center mb-5">
+      <QRCodeGenerator defaultUrl="https://propinar-argentina.vercel.app" size={60} />
+      <Title title="PropinAr" className="inline-block" />
     </div>
+    <p className="text-xl text-center">
+      <span className="text-2xl text-center">🇦🇷</span> Propina Electrónica Argentina 
+      <span className="text-2xl text-center">🇦🇷</span>
+    </p>
+    <div className="max-w-screen-lg w-full h-0.5 rounded bg-gray-200 mb-10" />
+    <span className="mt-5 text-2xl text-center font-bold ">
+      <div className="flex justify-center">{currencyFormat(total)}</div>
+    </span>
+    <div className="mt-5 mb-2 max-w-screen-lg w-full">
+      <input
+        type="number"
+        value={total}
+        onChange={(e) => setTotal(parseFloat(e.target.value))}
+        style={{ textAlign: 'center', fontSize: '1.2rem', fontWeight: 'bold' }}
+        className="w-full md:w-[calc(100% - 80px)] border border-gray-500 rounded-lg px-4 py-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
+        placeholder="Enter Total"
+        required
+        min="1"
+      />
+      <p className="mb-5"></p>
+      <p className="text-red-500">{errorMessage}</p>
+      <button
+        onClick={onPlaceOrder}
+        className={clsx({
+          'btn-primary': !isPlacingOrder,
+          'btn-disabled': isPlacingOrder,
+          'w-full md:w-[calc(100% - 80px)]': true
+        })}
+      >
+        Propina
+      </button>
+    </div>
+  </div>
+</div>
+
   );
 };

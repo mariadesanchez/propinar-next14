@@ -1,7 +1,9 @@
 "use server";
 import prisma from "@/lib/prisma";
+
 export const placeOrder = async (
   total: number,
+  userId: string,
 ) => {
  
   try {
@@ -12,6 +14,7 @@ export const placeOrder = async (
         data: {
         
           total: total,
+          userId: userId,
 
         },
       });

@@ -1,4 +1,5 @@
 import React from "react";
+import { QRCodeGenerator } from "@/components";
 import { PlaceOrder } from "./ui/PlaceOrder";
 
 export default function CheckoutPage() {
