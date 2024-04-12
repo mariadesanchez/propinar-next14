@@ -39,8 +39,8 @@ export const PlaceOrder = () => {
   return (
     <div className="bg-white rounded-xl w-full shadow-xl p-7 mt-20">
       <div className="text-center mb-5">
-        {/* <QRCodeGenerator defaultUrl="https://propinar-argentina.vercel.app" size={60} /> */}
-        <QRCodeGenerator defaultUrl=" https://saludar-app.vercel.app" size={60} />
+        <QRCodeGenerator defaultUrl="https://propinar-argentina.vercel.app" size={60} />
+        {/* <QRCodeGenerator defaultUrl=" https://saludar-app.vercel.app" size={60} /> */}
 
        
         <Title title="PropinAr" className="inline-block" />
