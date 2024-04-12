@@ -1,7 +1,7 @@
 'use client'
 import { SetStateAction, useState } from 'react';
 
-export const Rating = () => {
+export const Rating = (orderId) => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
 

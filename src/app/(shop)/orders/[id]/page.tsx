@@ -48,7 +48,9 @@ export default async function OrdersByIdPage({ params }: Props) {
             </span>
             <div className="mt-5 mb-2 w-full">
               {order?.isPaid ? (
-                <><OrderStatus isPaid={order?.isPaid ?? false} /><Rating /></>
+                <><OrderStatus isPaid={order?.isPaid ?? false} />
+                
+                <Rating orderId={order!.id} /></>
               ) : (
                 <MercadoPagoButton orderTotal={order!.total} orderId={order!.id} />
               )}
