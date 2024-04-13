@@ -29,22 +29,22 @@ export default async function OrdersByIdPage({ params }: Props) {
   return (
     <div className="flex justify-center mx-5 my-2">
   <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mx-2">
-    <div className="text-center mb-5">
+    <div className="text-center ">
     <div className="mx-auto  w-24 h-24 bg-cover bg-no-repeat rounded-full overflow-hidden" style={{ backgroundImage: `url('/imgs/AvatarLucky.png')` }}>
 
     </div>
     <p className="font-bold text-xl">Lucky Sanchez</p>
       <Title title="PropinAr" className="inline-block " />
   
-    <p className="text-xl text-center">
-      <span className="text-2xl text-center">🇦🇷</span> Propina Electrónica Argentina 
-      <span className="text-2xl text-center">🇦🇷</span>
+      <p className="text-xl text-center">
+      <span className="text-2xl text-center mb-5">🇦🇷</span> Propina Electrónica Argentina 
+      <span className="text-2xl text-center mb-5">🇦🇷</span>
     </p>
-    <div className="max-w-screen-lg w-full h-0.5 rounded bg-gray-200 mb-10" />
-      <span className="mt-5 text-2xl text-center font-bold">
+    <div className="max-w-screen-lg w-full h-0.5 rounded bg-gray-200 " />
+      <span className=" text-2xl text-center font-bold">
         <div className="flex justify-center">{currencyFormat(order!.total)}</div>
       </span>
-      <div className="mt-5 mb-2 max-w-screen-lg w-full">
+      <div className="max-w-screen-lg w-full">
         {order?.isPaid ? (
           <>
             <OrderStatus isPaid={order?.isPaid ?? false} />

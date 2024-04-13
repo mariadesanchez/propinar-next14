@@ -25,13 +25,21 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
           unit_price: order.total,
         },
       ],
+      // redirect_urls: {
+      //   failure: `https://propinar-next14.vercel.app/orders/${order.id}`,
+      //   success: `https://propinar-next14.vercel.app/orders/${order.id}`,
+      // },
+      // back_urls: {
+      //   failure: `https://propinar-next14.vercel.app/orders/${order.id}`,
+      //   success: `https://propinar-next14.vercel.app/orders/${order.id}`,
+      // },
       redirect_urls: {
-        failure: `https://propinar-next14.vercel.app/orders/${order.id}`,
-        success: `https://propinar-next14.vercel.app/orders/${order.id}`,
+        failure: `http://localhost:3006/orders/${order.id}`,
+        success: `http://localhost:3006/orders/${order.id}`,
       },
       back_urls: {
-        failure: `https://propinar-next14.vercel.app/orders/${order.id}`,
-        success: `https://propinar-next14.vercel.app/orders/${order.id}`,
+        failure: `http://localhost:3006/orders/${order.id}`,
+        success: `http://localhost:3006/orders/${order.id}`,
       },
       auto_return: 'approved'
     },
