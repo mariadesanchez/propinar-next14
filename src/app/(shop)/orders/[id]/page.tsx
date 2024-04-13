@@ -27,8 +27,8 @@ export default async function OrdersByIdPage({ params }: Props) {
     redirect("/");
   }
   return (
-    <div className="flex justify-center mx-10">
-  <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mt-20">
+    <div className="flex justify-center mx-5 my-2">
+  <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mx-2">
     <div className="text-center mb-5">
     <div className="mx-auto  w-24 h-24 bg-cover bg-no-repeat rounded-full overflow-hidden" style={{ backgroundImage: `url('/imgs/AvatarLucky.png')` }}>
 

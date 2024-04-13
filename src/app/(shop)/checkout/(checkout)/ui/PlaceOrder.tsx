@@ -45,7 +45,7 @@ export const PlaceOrder = () => {
   }
 
   return (
-    <div className="flex justify-center mx-10">
+    <div className="flex justify-center mx-5 my-[-70px]">
   <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mt-20">
     <div className="text-center mb-5">
       <QRCodeGenerator defaultUrl="https://propinar-argentina.vercel.app" size={60} />

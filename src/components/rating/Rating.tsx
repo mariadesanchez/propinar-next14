@@ -31,7 +31,7 @@ export const Rating = ({ orderId }: { orderId: string }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-xl p-7 relative mx-10 ">
+    <div className="bg-white rounded-xl shadow-xl p-7 relative mx-5 my-[-70px]">
       <div className="text-center">
         <h2 className="font-bold text-xl">Calificaciones y Reseñas</h2>
         {!updateSuccess && (
