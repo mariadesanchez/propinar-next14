@@ -23,7 +23,7 @@ export const PlaceOrder = () => {
   const onPlaceOrder = async () => {
     setIsPlacingOrder(true);
     // const userId = '69b537ff-b183-4391-9712-b691b1d53ac2';//local aca va el UUI del titular de la cuenta de mercado pago
-    const userId = '    c538e983-a9ac-4e74-a045-58c174fb73c6' //Storage Vercel
+    const userId = '2f49de0f-e436-4305-8efc-3a201a30d37e' //Storage Vercel
 
     try {
       const resp = await placeOrder(total, userId);
