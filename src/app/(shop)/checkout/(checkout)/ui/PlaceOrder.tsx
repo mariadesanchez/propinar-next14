@@ -23,7 +23,7 @@ export const PlaceOrder = () => {
   const onPlaceOrder = async () => {
     setIsPlacingOrder(true);
     // const userId = '69b537ff-b183-4391-9712-b691b1d53ac2';//local aca va el UUI del titular de la cuenta de mercado pago
-    const userId = '2f49de0f-e436-4305-8efc-3a201a30d37e' //Storage Vercel
+    const userId = '2f49de0f-e436-4305-8efc-3a201a30d37e' //Storage Vercel lola
 
     try {
       const resp = await placeOrder(total, userId);
@@ -45,7 +45,7 @@ export const PlaceOrder = () => {
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mx-10">
   <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mt-20">
     <div className="text-center mb-5">
       <QRCodeGenerator defaultUrl="https://propinar-argentina.vercel.app" size={60} />
