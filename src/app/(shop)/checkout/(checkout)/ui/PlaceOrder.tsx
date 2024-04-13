@@ -22,7 +22,7 @@ export const PlaceOrder = () => {
 
   const onPlaceOrder = async () => {
     setIsPlacingOrder(true);
-    const userId = 'fa3bd971-aea7-4049-9945-8f4b2836f98f';//aca va el UUI del titular de la cuenta de mercado pago
+    const userId = '0aea02cc-5830-40a4-9c18-894ecfcb1203';//aca va el UUI del titular de la cuenta de mercado pago
     try {
       const resp = await placeOrder(total, userId);
       if (!resp.ok) {
