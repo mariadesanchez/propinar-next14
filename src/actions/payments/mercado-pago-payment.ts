@@ -26,12 +26,12 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         },
       ],
       redirect_urls: {
-        failure: `http://localhost:3001/orders/${order.id}`,
-        success: `http://localhost:3001/orders/${order.id}`,
+        failure: `https://propinar-next14.vercel.app/orders/${order.id}`,
+        success: `https://propinar-next14.vercel.app/orders/${order.id}`,
       },
       back_urls: {
-        failure: `http://localhost:3001/orders/${order.id}`,
-        success: `http://localhost:3001/orders/${order.id}`,
+        failure: `https://propinar-next14.vercel.app/orders/${order.id}`,
+        success: `https://propinar-next14.vercel.app/orders/${order.id}`,
       },
       auto_return: 'approved'
     },
