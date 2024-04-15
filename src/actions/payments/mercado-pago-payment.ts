@@ -34,25 +34,19 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
       //   success: `https://propinar-next14.vercel.app/orders/${order.id}`,
       // },
       redirect_urls: {
-        failure: `http://localhost:3006/orders/${order.id}`,
-        success: `http://localhost:3006/orders/${order.id}`,
+        failure: `http://localhost:3002/orders/${order.id}`,
+        success: `http://localhost:3002/orders/${order.id}`,
       },
       back_urls: {
-        failure: `http://localhost:3006/orders/${order.id}`,
-        success: `http://localhost:3006/orders/${order.id}`,
+        failure: `http://localhost:3002/orders/${order.id}`,
+        success: `http://localhost:3002/orders/${order.id}`,
       },
       auto_return: 'approved'
     },
   });
 
   if (res.id) {
-    await prisma.order.update({
-      where: { id: order.id },
-      data: {
-        isPaid: true,
-        paidAt: new Date(),
-      }
-    });
+
     
     // Utiliza redirect desde next/navigation para redirigir después de actualizar la orden
     redirect(res.init_point!);

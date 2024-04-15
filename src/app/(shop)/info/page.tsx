@@ -65,7 +65,7 @@ export default function OrderList() {
             <tr className="bg-gray-100">
               <th className="border border-gray-200 px-4 py-2">Comentario</th>
               <th className="border border-gray-200 px-4 py-2">Fecha</th>
-              <th className="border border-gray-200 px-4 py-2">Hora</th>
+              {/* <th className="border border-gray-200 px-4 py-2">Hora</th> */}
               <th className="border border-gray-200 px-4 py-2">Calificación</th>
               <th className="border border-gray-200 px-4 py-2">Total</th>
             </tr>
@@ -77,7 +77,7 @@ export default function OrderList() {
       <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-celeste-marcado'}>
       <td className="border border-gray-200 px-4 py-2 text-center">{order.comentario}</td>
       <td className="border border-gray-200 px-4 py-2 text-center">{moment(order.paidAt).format('DD-MM-YYYY')}</td>
-      <td className="border border-gray-200 px-4 py-2 text-center">{moment(order.paidAt).format('HH:mm:ss')}</td>
+      {/* <td className="border border-gray-200 px-4 py-2 text-center">{moment(order.paidAt).format('HH:mm:ss')}</td> */}
       <td className="border border-gray-200 px-4 py-2 text-center">{renderStars(order.calificacion)}</td>
       <td className="border border-gray-200 px-4 py-2 text-center">{order.total}</td>
     </tr>

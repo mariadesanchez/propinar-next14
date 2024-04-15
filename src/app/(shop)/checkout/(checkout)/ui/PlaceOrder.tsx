@@ -23,7 +23,7 @@ export const PlaceOrder = () => {
   const onPlaceOrder = async () => {
     setIsPlacingOrder(true);
     // const userId = '69b537ff-b183-4391-9712-b691b1d53ac2';//local aca va el UUI del titular de la cuenta de mercado pago
-    const userId = '2f49de0f-e436-4305-8efc-3a201a30d37e' //Storage Vercel lola
+    const userId = '42aa5279-a23d-455a-99a4-d6c090ea8be4' //Storage Vercel lola
 
     try {
       const resp = await placeOrder(total, userId);
@@ -32,7 +32,10 @@ export const PlaceOrder = () => {
         setErrorMessage(resp.message);
         return;
       }
+   
+      // router.replace('/orders?id=' + resp.order?.id +'&total='+ total);
       router.replace('/orders/' + resp.order?.id);
+
     } catch (error) {
       setIsPlacingOrder(false);
       setErrorMessage('An error occurred while placing the order.');
@@ -79,6 +82,7 @@ export const PlaceOrder = () => {
           'btn-primary': !isPlacingOrder,
           'btn-disabled': isPlacingOrder,
           'w-full md:w-[calc(100% - 80px)]': true,
+          'mt':'20px'
        
          
         })}

@@ -19,6 +19,7 @@ export const upDateOrderById = async (
     if (!order) {
       throw `${id} no existe`;
     }
+    
     // if (order.comentario) {
     //   throw `${id} Ya dejaste un comentario`;
     // }
