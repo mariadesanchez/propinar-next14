@@ -75,13 +75,13 @@ export default function OrdersByIdPage({ params }: Props) {
           </p>
           <div className="max-w-screen-lg w-full h-0.5 rounded bg-gray-200 mb-10" />
           <span className="mt-5 text-2xl text-center font-bold">
-            <div className="flex justify-center">{currencyFormat(order?.total)}</div>
+            <div className="flex justify-center">{currencyFormat(order!.total)}</div>
           </span>
           <div className="mt-5 mb-2 max-w-screen-lg w-full">
             {isCollectionStatusApproved ? (
               <Rating orderId={order!.id} />
             ) : (
-              <MercadoPagoButton orderTotal={order!.total} orderId={order.id} />
+              <MercadoPagoButton orderTotal={order!.total} orderId={order!.id} />
             )}
           </div>
         </div>
