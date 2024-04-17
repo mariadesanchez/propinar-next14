@@ -64,7 +64,7 @@ export default function OrdersByIdPage({ params }: Props) {
   }
 
   return (
-    <div className="flex justify-center mx-5 my-[-20px]">
+    <div className="flex justify-center mx-5 my-[-5px]">
       <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mx-2">
         <div className="text-center mb-5">
           <div className="mx-auto w-24 h-24 bg-cover bg-no-repeat rounded-full overflow-hidden" style={{ backgroundImage: `url('/imgs/AvatarLucky.png')` }}></div>
