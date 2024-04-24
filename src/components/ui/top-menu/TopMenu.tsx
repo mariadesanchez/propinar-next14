@@ -50,15 +50,16 @@ export const TopMenu = () => {
     {/* <div className="flex items-center font-bold text-2xl">
       {isAuthenticated && <p>{session.user.name}</p>}
     </div> */}
-    <div className="flex items-center font-bold text-2xl">
+   <div className="flex items-center font-bold text-2xl">
   {isAuthenticated && (
-    <div>
-      <p className="text-2xl">Hola</p>
-      <p className="text-4xl">{session.user.name.split(' ')[0]}</p>
+    <div style={{marginLeft: '10px'}}> {/* Ajusta el margen izquierdo según lo necesites */}
+      <p className="text-xl">Hola</p>
+      <p className="text-2xl" style={{color: 'white'}}> {/* Cambia el color del texto a blanco */}
+        {session.user.name.split(' ')[0]}
+      </p>
     </div>
   )}
 </div>
-
 
   
     <div className="flex items-center">
