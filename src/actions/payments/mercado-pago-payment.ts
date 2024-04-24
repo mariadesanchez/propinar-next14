@@ -1,6 +1,6 @@
 'use server'
 import { MercadoPagoConfig, Preference } from 'mercadopago';
-import { redirect } from 'next/navigation'; // Importar desde next/navigation en lugar de next/router
+import { redirect} from 'next/navigation'; // Importar desde next/navigation en lugar de next/router
 import prisma from '@/lib/prisma';
 
 interface Order {
@@ -34,12 +34,12 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         success: `https://propinar-next14.vercel.app/orders/${order.id}`,
       },
       // redirect_urls: {
-      //   failure: `http://localhost:3002/orders/${order.id}`,
-      //   success: `http://localhost:3002/orders/${order.id}`,
+      //   failure: `http://localhost:3000/orders/${order.id}`,
+      //   success: `http://localhost:3000/orders/${order.id}`,
       // },
       // back_urls: {
-      //   failure: `http://localhost:3002/orders/${order.id}`,
-      //   success: `http://localhost:3002/orders/${order.id}`,
+      //   failure: `http://localhost:3000/orders/${order.id}`,
+      //   success: `http://localhost:3000/orders/${order.id}`,
       // },
       auto_return: 'approved'
     },

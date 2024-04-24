@@ -9,6 +9,11 @@ export * from './ui/top-menu/TopMenu';
 export* from './rating/Rating'
 export * from './qr-generator/QRCodeGenerator'
 export * from './totalMonth'
+export * from './place-order/PlaceOrder'
+export * from './info/page'
+
+
+
 
 
 

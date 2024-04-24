@@ -1,7 +1,8 @@
 'use client'
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { getOrdersByUser } from '../../../actions/order/get-orders-by-user';
+import {getOrdersByUser} from '../../actions/order/get-order-by-user'
+// import { getOrdersByUser } from '../../../actions/order/get-orders-by-user';
 // import { getTotalMonth } from '@/actions/order/get-total-month';
 import moment from 'moment';
 const renderStars = (rating: number) => {
@@ -71,18 +72,21 @@ export default function OrderList() {
             </tr>
           </thead>
           <tbody>
-  {orders
-    .filter(order => order.isPaid) // Filtrar las órdenes donde isPaid sea true
-    .map((order, index) => (
-      <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-celeste-marcado'}>
-      <td className="border border-gray-200 px-4 py-2 text-center">{order.comentario}</td>
-      <td className="border border-gray-200 px-4 py-2 text-center">{moment(order.paidAt).format('DD-MM-YYYY')}</td>
-      {/* <td className="border border-gray-200 px-4 py-2 text-center">{moment(order.paidAt).format('HH:mm:ss')}</td> */}
-      <td className="border border-gray-200 px-4 py-2 text-center">{renderStars(order.calificacion)}</td>
-      <td className="border border-gray-200 px-4 py-2 text-center">{order.total}</td>
-    </tr>
-    ))}
-</tbody>
+        {orders
+          .filter(order => order.isPaid) // Filtrar las órdenes donde isPaid sea true
+          .sort((a, b) => new Date(b.paidAt).getTime() - new Date(a.paidAt).getTime()) // Ordenar por fecha descendente
+          .map((order, index) => (
+            <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-celeste-marcado'}>
+              <td className="border border-gray-200 px-4 py-2 text-center">{order.comentario}</td>
+              <td className="border border-gray-200 px-4 py-2 text-center">
+                {moment(order.paidAt).format('DD-MM-YYYY')}
+              </td>
+              {/* <td className="border border-gray-200 px-4 py-2 text-center">{moment(order.paidAt).format('HH:mm:ss')}</td> */}
+              <td className="border border-gray-200 px-4 py-2 text-center">{renderStars(order.calificacion)}</td>
+              <td className="border border-gray-200 px-4 py-2 text-center">{order.total}</td>
+            </tr>
+          ))}
+      </tbody>
         </table>
       </div>
     </div>

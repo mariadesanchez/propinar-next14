@@ -70,7 +70,7 @@ export const Sidebar = () => {
         {isAuthenticated && (
           <>
             <Link
-              href="/profile"
+              href="profile"
               onClick={() => closeMenu()}
               className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             >
@@ -79,7 +79,7 @@ export const Sidebar = () => {
             </Link>
 
             <Link
-              href="/info"
+              href="/"
               className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             >
               <IoTicketOutline size={30} />

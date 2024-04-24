@@ -9,7 +9,13 @@ import { currencyFormat } from '@/utils';
 import { Title } from "@/components/ui/title/Title";
 import {QRCodeGenerator} from "@/components/qr-generator/QRCodeGenerator";
 
-export const PlaceOrder = () => {
+interface Props {
+    uuid: string;
+    uuidUrl: string;
+  }
+  
+
+export const PlaceOrder = ({ uuid }: Props) => {
   const router = useRouter();
   const [loaded, setLoaded] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
@@ -22,16 +28,21 @@ export const PlaceOrder = () => {
 
   const onPlaceOrder = async () => {
     setIsPlacingOrder(true);
-    // const userId = '69b537ff-b183-4391-9712-b691b1d53ac2';//local aca va el UUI del titular de la cuenta de mercado pago
-    const userId = 'c538e983-a9ac-4e74-a045-58c174fb73c6' //Storage Vercel lola
-
+    // const userId = '42aa5279-a23d-455a-99a4-d6c090ea8be4' //Storage Vercel lola
+  
+  
     try {
+      // const userId = uuid;
+      const userId = uuid;
+
       const resp = await placeOrder(total, userId);
+
       if (!resp.ok) {
         setIsPlacingOrder(false);
         setErrorMessage(resp.message);
         return;
       }
+    
    
       // router.replace('/orders?id=' + resp.order?.id +'&total='+ total);
       router.replace('/orders/' + resp.order?.id);
@@ -50,9 +61,10 @@ export const PlaceOrder = () => {
   return (
     <div className="flex justify-center mx-5 my-[-70px]">
   <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mt-20">
-    <div className="text-center">
-      <QRCodeGenerator defaultUrl="https://propinar-next14.vercel.app"
-       size={60} />
+    <div className="text-center mt-[-50px]">
+    <QRCodeGenerator defaultUrl={`http://localhost:3004/ui/${uuid}`} size={60} />
+    {/* <QRCodeGenerator defaultUrl={`https://propinar-next14.vercel.app/${uuid}`} size={60} /> */}
+
       <Title title="PropinAr" className="inline-block " />
     </div>
     <p className="text-xl text-center">
@@ -94,4 +106,4 @@ export const PlaceOrder = () => {
 </div>
 
   );
-};
+}

@@ -6,6 +6,8 @@ import { titleFont } from "@/config/fonts";
 import {useUIStore } from "@/store";
 import { IoPersonOutline, IoMenuOutline } from 'react-icons/io5';
 import {TotalMonth} from '@/components/totalMonth';
+import { useSession } from "next-auth/react";
+// import UserAuth from '../../../actions/order/get-user-auth'
 
 
 
@@ -17,7 +19,8 @@ export const TopMenu = () => {
 
   const [loaded, setLoaded] = useState(false);
 
-
+  const { data: session } = useSession();
+  const isAuthenticated = !!session?.user;
 
   // if ( session?.user ) {
   //   redirect('/');
@@ -50,7 +53,17 @@ export const TopMenu = () => {
         {/* <Link href="/search" className="mx-2">
           <IoSearchOutline className="w-5 h-5" />
         </Link> */}
-       
+          <div className="flex items-center">
+            {/* {UserAuth()} */}
+          </div>
+          <div className="flex items-center">
+        
+          </div>
+
+          <div className="flex items-center">
+         {isAuthenticated&&
+         <p>{session.user.name}</p>}
+          </div>
         <div className="flex items-center">
    
         <TotalMonth/>
