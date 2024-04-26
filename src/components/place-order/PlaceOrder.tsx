@@ -11,7 +11,7 @@ import {QRCodeGenerator} from "@/components/qr-generator/QRCodeGenerator";
 
 interface Props {
     uuid: string;
-    uuidUrl: string;
+
   }
   
 

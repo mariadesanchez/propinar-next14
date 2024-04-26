@@ -7,9 +7,10 @@ import clsx from "clsx";
 interface Props {
   orderId: string;
   orderTotal: number;
+  orderUserId:string
 }
 
-export const MercadoPagoButton = ({ orderId, orderTotal }: Props) => {
+export const MercadoPagoButton = ({ orderId, orderTotal ,orderUserId}: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleMercadoPago = async () => {
@@ -19,6 +20,7 @@ export const MercadoPagoButton = ({ orderId, orderTotal }: Props) => {
     mercadoPagoCheckPayment({
       id: orderId,
       total: orderTotal,
+      orderUserId: orderUserId
     });
   };
 

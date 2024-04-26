@@ -6,10 +6,19 @@ import prisma from '@/lib/prisma';
 interface Order {
   id: string;
   total: number;
+  orderUserId:string
 }
 
 export const mercadoPagoCheckPayment = async (order: Order) => {
-  const accessToken = process.env.NEXT_MERCADO_PAGO_ACCESS_TOKEN25341763!;
+  
+  // const accessToken = process.env['42aa5279-a23d-455a-99a4-d6c090ea8be4']!;
+  const accessToken = process.env[order.orderUserId];
+
+  if (!accessToken) {
+    console.error("No se pudo obtener el token de acceso para el usuario:", order.orderUserId);
+    return; // Salir de la función si no se puede obtener el token de acceso
+  } // Acceder a la variable de entorno basada en orderUserId
+
   const client = new MercadoPagoConfig({ accessToken });
 
   const preference = new Preference(client);
@@ -25,22 +34,22 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
           unit_price: order.total,
         },
       ],
-      redirect_urls: {
-        failure: `https://propinar-arg.vercel.app/orders/${order.id}`,
-        success: `https://propinar-arg.vercel.app/orders/${order.id}`,
-      },
-      back_urls: {
-        failure: `https://propinar-arg.vercel.app/orders/${order.id}`,
-        success: `https://propinar-arg.vercel.app/orders/${order.id}`,
-      },
       // redirect_urls: {
-      //   failure: `http://localhost:3000/orders/${order.id}`,
-      //   success: `http://localhost:3000/orders/${order.id}`,
+      //   failure: `https://propinar-arg.vercel.app/orders/${order.id}`,
+      //   success: `https://propinar-arg.vercel.app/orders/${order.id}`,
       // },
       // back_urls: {
-      //   failure: `http://localhost:3000/orders/${order.id}`,
-      //   success: `http://localhost:3000/orders/${order.id}`,
+      //   failure: `https://propinar-arg.vercel.app/orders/${order.id}`,
+      //   success: `https://propinar-arg.vercel.app/orders/${order.id}`,
       // },
+      redirect_urls: {
+        failure: `http://localhost:3002/orders/${order.id}`,
+        success: `http://localhost:3002/orders/${order.id}`,
+      },
+      back_urls: {
+        failure: `http://localhost:3002/orders/${order.id}`,
+        success: `http://localhost:3002/orders/${order.id}`,
+      },
       auto_return: 'approved'
     },
   });

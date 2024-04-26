@@ -36,7 +36,7 @@ export default  function PropinPage() {
      
       <div className="mt-5 mb-20 max-w-screen-lg w-full"> {/* Agregado mb-20 */}
       
-        {myUserId && <PlaceOrder uuid={myUserId} uuidUrl={""} />}
+        {myUserId && <PlaceOrder uuid={myUserId} />}
       </div>
     </div>
   </div>

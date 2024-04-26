@@ -82,7 +82,7 @@ export default function OrdersByIdPage({ params }: Props) {
           <Rating orderId={order!.id} />
         ) : (
           <div className="mb-100">
-            <MercadoPagoButton orderTotal={order!.total} orderId={order!.id} />
+            <MercadoPagoButton orderTotal={order!.total} orderId={order!.id} orderUserId={order!.userId}/>
           </div>
         )}
       </div>
