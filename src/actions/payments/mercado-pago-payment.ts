@@ -12,10 +12,15 @@ interface Order {
 export const mercadoPagoCheckPayment = async (order: Order) => {
   
   // const accessToken = process.env['42aa5279-a23d-455a-99a4-d6c090ea8be4']!;
-  const accessToken = process.env[order.orderUserId];
+  // const accessToken = process.env[order.orderUserId];
+   // Modificar order.orderUserId según tus especificaciones
+   const modifiedUserId = order.orderUserId.replace(/-/g, '_').replace(/^\d+/, '').toLowerCase();
+   console.log(modifiedUserId)
+   // Acceder a la variable de entorno modificada
+   const accessToken = process.env[modifiedUserId];
 
   if (!accessToken) {
-    console.error("No se pudo obtener el token de acceso para el usuario:", order.orderUserId);
+    console.error("No se pudo obtener el token de acceso para el usuario:", modifiedUserId);
     return; // Salir de la función si no se puede obtener el token de acceso
   } // Acceder a la variable de entorno basada en orderUserId
 
@@ -43,12 +48,12 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
       //   success: `https://propinar-arg.vercel.app/orders/${order.id}`,
       // },
       redirect_urls: {
-        failure: `http://localhost:3002/orders/${order.id}`,
-        success: `http://localhost:3002/orders/${order.id}`,
+        failure: `http://localhost:3005/orders/${order.id}`,
+        success: `http://localhost:3005/orders/${order.id}`,
       },
       back_urls: {
-        failure: `http://localhost:3002/orders/${order.id}`,
-        success: `http://localhost:3002/orders/${order.id}`,
+        failure: `http://localhost:3005/orders/${order.id}`,
+        success: `http://localhost:3005/orders/${order.id}`,
       },
       auto_return: 'approved'
     },
