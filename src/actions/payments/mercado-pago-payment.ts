@@ -10,11 +10,12 @@ interface Order {
 }
 
 export const mercadoPagoCheckPayment = async (order: Order) => {
-  
-  // const accessToken = process.env['42aa5279-a23d-455a-99a4-d6c090ea8be4']!;
-  // const accessToken = process.env[order.orderUserId];
-   // Modificar order.orderUserId según tus especificaciones
-   const modifiedUserId = order.orderUserId.replace(/-/g, '_').replace(/^\d+/, '').trim().toLowerCase();
+
+   //elimina espacios en blanco inicial, elimina numeros iniciales (en vercel tiene que comenzar con una letra una variable de entorno)
+  //tambien reemplazamos los - por _ que son los que acepta vercel para variables de entorno
+   //el resultado de modificar el uuid del usuario, ej:c538e983_a9ac_4e74_a045_58c174fb73c6, es el nombre de la variable de entorno
+   //que usaremos en .env para ese usuario(camarero/a), cuyo valor el access-token de Mercado Pago
+  const modifiedUserId = order.orderUserId.replace(/-/g, '_').replace(/^\d+/, '').trim().toLowerCase();
    console.log(modifiedUserId)
    // Acceder a la variable de entorno modificada
    const accessToken = process.env[modifiedUserId];
@@ -48,12 +49,12 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         success: `https://propinar-arg.vercel.app/orders/${order.id}`,
       },
       // redirect_urls: {
-      //   failure: `http://localhost:3008/orders/${order.id}`,
-      //   success: `http://localhost:3008/orders/${order.id}`,
+      //   failure: `http://localhost:3009/orders/${order.id}`,
+      //   success: `http://localhost:3009/orders/${order.id}`,
       // },
       // back_urls: {
-      //   failure: `http://localhost:3008/orders/${order.id}`,
-      //   success: `http://localhost:3008/orders/${order.id}`,
+      //   failure: `http://localhost:3009/orders/${order.id}`,
+      //   success: `http://localhost:3009/orders/${order.id}`,
       // },
       auto_return: 'approved'
     },
