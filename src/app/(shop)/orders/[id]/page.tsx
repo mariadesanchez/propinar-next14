@@ -18,6 +18,7 @@ interface Order {
   updatedAt: Date;
   userId: string;
   transactionId: string | null;
+  // disabledComment: boolean;
 }
 
 interface Props {

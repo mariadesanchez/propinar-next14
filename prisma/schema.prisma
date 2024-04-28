@@ -54,4 +54,5 @@ generator client {
   
   
     transactionId String?
+    disabledComment Boolean?
   }

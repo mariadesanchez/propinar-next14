@@ -53,8 +53,8 @@ export const TopMenu = () => {
    <div className="flex items-center font-bold text-2xl">
   {isAuthenticated && (
     <div style={{marginLeft: '10px'}}> {/* Ajusta el margen izquierdo según lo necesites */}
-      <p className="text-xl">Hola</p>
-      <p className="text-2xl" style={{color: 'white',marginLeft: '-5px'}}> {/* Cambia el color del texto a blanco */}
+      {/* <p className="text-xl">Hola</p> */}
+      <p className="text-4xl" style={{color: 'white',marginLeft: '-5px'}}> {/* Cambia el color del texto a blanco */}
         {session.user.name.split(' ')[0]}
       </p>
     </div>

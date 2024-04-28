@@ -30,7 +30,7 @@ export default  function PropinPage() {
   <div className="bg-white rounded-xl max-w-screen-lg w-full md:max-w-[800px] shadow-xl p-7 mx-2">
     <div className="text-center mb-5">
       <div className="mx-auto w-24 h-24 bg-cover bg-no-repeat rounded-full overflow-hidden" style={{ backgroundImage: `url('/imgs/AvatarLucky.png')` }}></div>
-      <p className="font-bold text-xl">Lucky Sanchez</p>
+      {/* <p className="font-bold text-xl">Lucky Sanchez</p> */}
     
       <div className="max-w-screen-lg w-full h-0.5 rounded bg-gray-200 mb-10" />
      
