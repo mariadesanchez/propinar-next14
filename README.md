@@ -36,7 +36,3 @@ CLOUDINARY_URL=cloudinary://...----.... -->
 7. Correr el proyecto ```npm run dev```
 8. Limpiar el localStorage del navegador.
 
-
-
-
-## Correr en prod# lucky-shop# propinar-next14

@@ -5,6 +5,8 @@ import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import {
   IoCloseOutline,
+  IoEyeOffOutline,
+  IoEyeOutline,
   IoLogInOutline,
   IoLogOutOutline,
   IoPeopleOutline,
@@ -84,6 +86,20 @@ export const Sidebar = () => {
             >
               <IoTicketOutline size={30} />
               <span className="ml-3 text-xl">Mis Propinas...</span>
+            </Link>
+            <Link
+              href="/notInfo"
+              className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
+            >
+              <IoEyeOffOutline size={30} />
+              <span className="ml-3 text-xl">Mjs Ocultos</span>
+            </Link>
+            <Link
+              href="/"
+              className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
+            >
+              <IoEyeOutline size={30} />
+              <span className="ml-3 text-xl">Mensajes</span>
             </Link>
           </>
         )}
